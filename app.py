@@ -24,9 +24,9 @@ from linebot.models import (MessageEvent, TextMessage, TextSendMessage,)
 app = Flask(__name__)
 
 # Channel Access Token
-line_bot_api = LineBotApi('wSxXXjij0dj/0/z33YlxLWfgI/OsUk/b+X7xXDiD650DQ6+KChG4tIPOxiquUWhgyBenw+gTPPzTRMhIpwxe1t6fKPXG1tfew1HI54R0pNi2K8iRT/mDQmFjwfJCiLZGpIdX33IAKPm7YrbZYNCzAQdB04t89/1O/w1cDnyilFU=')#YOUR_CHANNEL_ACCESS_TOKEN
+line_bot_api = LineBotApi('加入你自己的linebot api')#YOUR_CHANNEL_ACCESS_TOKEN
 # Channel Secret
-handler = WebhookHandler('d231cc7ff5d1e8a85df5af565461a1b8') # YOUR_CHANNEL_SECRET
+handler = WebhookHandler('加入你自己的Webhook') # YOUR_CHANNEL_SECRET
 
 #def excel_dowload():
 #    target_url = 'http://192.168.43.246/test/index.txt'# 必須要固定ip不可用浮動ip
@@ -76,8 +76,8 @@ def handle_message(event):
         pass
         #GDriveJSON就輸入下載下來Json檔名稱
         #GSpreadSheet是google試算表名稱
-        GDriveJSON = 'linebot-253309-c09bb55fd137.json'
-        GSpreadSheet = 'linebot'
+        GDriveJSON = '你自己的json金鑰.json'
+        GSpreadSheet = '你自己命名的google試算表' #要記得開共用給json檔裡面的client email
         ss = 1
         while ss > 0:
             try:
@@ -97,8 +97,8 @@ def handle_message(event):
                 return textt
     if "總結" in event.message.text:
         scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
-        GDriveJSON = 'linebot-253309-c09bb55fd137.json'
-        GSpreadSheet = 'linebot'
+        GDriveJSON = '你自己的json金鑰.json'
+        GSpreadSheet = '你自己命名的google試算表' #要記得開共用給json檔裡面的client email
         key = SAC.from_json_keyfile_name(GDriveJSON, scope)
         gc = gspread.authorize(key)
         worksheet = gc.open(GSpreadSheet).sheet1
@@ -114,8 +114,8 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='今天總共花費: '+str(sums)))
     if '#' in event.message.text and '$' not in event.message.text:
         scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
-        GDriveJSON = 'linebot-253309-c09bb55fd137.json'
-        GSpreadSheet = 'linebot'
+        GDriveJSON = '你自己的json金鑰.json'
+        GSpreadSheet = '你自己命名的google試算表' #要記得開共用給json檔裡面的client email
         key = SAC.from_json_keyfile_name(GDriveJSON, scope)
         gc = gspread.authorize(key)
         worksheet = gc.open(GSpreadSheet).sheet1
